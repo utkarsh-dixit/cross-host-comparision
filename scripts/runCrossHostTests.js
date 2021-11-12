@@ -7,7 +7,7 @@ const GIT_COMMIT = process.env.GIT_COMMIT || "280500bc8d6e4a163a0b9cff7351184a40
 const CRUSHER_TOKEN = process.env.CRUSHER_TOKEN || "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoyODgsInRlYW1faWQiOjIyNSwiaWF0IjoxNjM1MTE1MDQ5LCJleHAiOjE2NjY2NTEwNDl9.FvAN8P9tREKZlw2DOlXXk81xVd4Zq-p6-c3ahTjFIj0";
 
 const resolveToBackendPath = (path) => {
-  return url.resolve("http://localhost:8000", path);
+  return url.resolve("https://backend.crusher.dev", path);
 };
 
 (async () => {
