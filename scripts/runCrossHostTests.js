@@ -12,11 +12,11 @@ const resolveToBackendPath = (path) => {
       'content-type': 'application/x-www-form-urlencoded; charset=UTF-8',
       'cookie': `token=${process.env.CRUSHER_TOKEN}`,
     },
-    body: {
+    body: JSON.stringify({
       githubRepoName: process.env.GITHUB_REPO_NAME,
       disableBaseLineComparisions: true,
       host: "https://headout.com",
-    }
+    })
   }).then(async (res) => {
     const responseText = await res.text();
     const { buildId } = JSON.parse(responseText);
@@ -57,12 +57,12 @@ const resolveToBackendPath = (path) => {
       'content-type': 'application/x-www-form-urlencoded; charset=UTF-8',
       'cookie': `token=${process.env.CRUSHER_TOKEN}`,
     },
-    body: {
+    body: JSON.stringify({
       githubRepoName: process.env.GITHUB_REPO_NAME,
       baselineJobId: baseBuildId,
       githubCommitId: process.env.GIT_COMMIT,
       host: "https://stage-headout.com",
-    }
+    })
   }).then(async (res) => {
     const responseText = await res.text();
     const { buildId } = JSON.parse(responseText);
