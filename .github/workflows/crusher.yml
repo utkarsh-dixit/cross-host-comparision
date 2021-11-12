@@ -1,0 +1,33 @@
+# This workflow will do a clean install of node dependencies, cache/restore them, build the source code and run tests across different versions of node
+# For more information see: https://help.github.com/actions/language-and-framework-guides/using-nodejs-with-github-actions
+
+name: Node.js CI
+
+on:
+  pull_request:
+    types: [ labeled ]
+    branches: [ main ]
+
+jobs:
+  build:
+    if: ${{ github.event.label.name == 'run-crusher' }}
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: Use Node.js 14
+      uses: actions/setup-node@v2
+      with:
+        node-version: 14
+        cache: 'npm'
+    - name: Install yarn
+      run: npm install -g yarn
+    - name: Install all modules
+      run: yarn install
+    - name: Run cross-host comparision script
+      run: node scripts/runCrossHostTests.js
+      env:
+        CRUSHER_TOKEN: ${{ secrets.CRUSHER_TOKEN }}
+        PROJECT_ID: 587
+        GITHUB_REPO_NAME: crusherdev/cross-host-comparision
+        GIT_COMMIT: ${{ github.event.pull_request.head.sha }}
+        
