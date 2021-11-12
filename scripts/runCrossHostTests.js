@@ -58,7 +58,7 @@ const resolveToBackendPath = (path) => {
       'cookie': `token=${process.env.CRUSHER_TOKEN}`,
     },
     body: {
-      githubRepoName: "crusherdev/crusher",
+      githubRepoName: process.env.GITHUB_REPO_NAME,
       baselineJobId: baseBuildId,
       githubCommitId: process.env.GIT_COMMIT,
       host: "https://stage-headout.com",
