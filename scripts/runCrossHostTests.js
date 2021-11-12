@@ -10,7 +10,7 @@ const resolveToBackendPath = (path) => {
     method: "POST",
     headers: {
       'content-type': 'application/x-www-form-urlencoded; charset=UTF-8',
-      'cookie': `token=${proess.env.CRUSHER_TOKEN}`,
+      'cookie': `token=${process.env.CRUSHER_TOKEN}`,
     },
     body: {
       githubRepoName: process.env.GITHUB_REPO_NAME,
