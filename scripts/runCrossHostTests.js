@@ -9,7 +9,6 @@ const resolveToBackendPath = (path) => {
   const baseBuildId = await fetch(resolveToBackendPath(`/projects/${process.env.PROJECT_ID}/tests/actions/run`), {
     method: "POST",
     headers: {
-      'content-type': 'application/x-www-form-urlencoded; charset=UTF-8',
       'cookie': `token=${process.env.CRUSHER_TOKEN}`,
     },
     body: JSON.stringify({
@@ -54,7 +53,6 @@ const resolveToBackendPath = (path) => {
   await fetch(resolveToBackendPath(`/projects/${process.env.PROJECT_ID}/tests/actions/run`), {
     method: "POST",
     headers: {
-      'content-type': 'application/x-www-form-urlencoded; charset=UTF-8',
       'cookie': `token=${process.env.CRUSHER_TOKEN}`,
     },
     body: JSON.stringify({
