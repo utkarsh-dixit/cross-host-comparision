@@ -11,11 +11,11 @@ const resolveToBackendPath = (path) => {
     headers: {
       'cookie': `token=${process.env.CRUSHER_TOKEN}`,
     },
-    body: {
+    body: JSON.stringify({
       githubRepoName: process.env.GITHUB_REPO_NAME,
       disableBaseLineComparisions: true,
       host: "https://headout.com",
-    }
+    })
   }).then(async (res) => {
     const responseText = await res.text();
     const { buildId } = JSON.parse(responseText);
@@ -55,12 +55,12 @@ const resolveToBackendPath = (path) => {
     headers: {
       'cookie': `token=${process.env.CRUSHER_TOKEN}`,
     },
-    body: {
+    body: JSON.stringify({
       githubRepoName: process.env.GITHUB_REPO_NAME,
       baselineJobId: baseBuildId,
       githubCommitId: process.env.GIT_COMMIT,
       host: "https://stage-headout.com",
-    }
+    })
   }).then(async (res) => {
     const responseText = await res.text();
     const { buildId } = JSON.parse(responseText);
