@@ -18,7 +18,6 @@ const resolveToBackendPath = (path) => {
       'cookie': `token=${CRUSHER_TOKEN}`,
     },
     body: JSON.stringify({
-      githubRepoName: GITHUB_REPO_NAME,
       disableBaseLineComparisions: true,
       host: "https://headout.com",
     })
