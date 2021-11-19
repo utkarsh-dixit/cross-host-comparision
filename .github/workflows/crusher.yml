@@ -23,11 +23,12 @@ jobs:
       run: npm install -g yarn
     - name: Install all modules
       run: yarn install
+    - run: |
+          echo "GITHUB_REPO_NAME=$GITHUB_REPOSITORY">>$GITHUB_ENV
     - name: Run cross-host comparision script
       run: node scripts/runCrossHostTests.js
       env:
         CRUSHER_TOKEN: ${{ secrets.CRUSHER_TOKEN }}
         PROJECT_ID: 587
-        GITHUB_REPO_NAME: ${{ env.GITHUB_REPOSITORY }}
         GIT_COMMIT: ${{ github.event.pull_request.head.sha }}
         
