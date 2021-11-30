@@ -26,7 +26,7 @@ jobs:
     - run: |
           echo "GITHUB_REPO_NAME=$GITHUB_REPOSITORY">>$GITHUB_ENV
     - name: Run cross-host comparision script
-      run: node scripts/runCrossHostTests.js
+      run: node scripts/runTestsInProd.js
       env:
         CRUSHER_TOKEN: ${{ secrets.CRUSHER_TOKEN }}
         PROJECT_ID: 731
