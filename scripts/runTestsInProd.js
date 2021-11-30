@@ -56,3 +56,4 @@ const resolveToBackendPath = (path) => {
   await waitTillBuildIsFinished(baseBuildId);
 
   console.loog("Build finished");
+})();
