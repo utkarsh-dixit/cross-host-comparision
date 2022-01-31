@@ -29,6 +29,6 @@ jobs:
       run: node scripts/runCrossHostTests.js
       env:
         CRUSHER_TOKEN: ${{ secrets.CRUSHER_TOKEN }}
-        PROJECT_ID: 587
+        PROJECT_ID: 855
         GIT_COMMIT: ${{ github.event.pull_request.head.sha }}
         
