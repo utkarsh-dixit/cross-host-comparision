@@ -29,5 +29,5 @@ jobs:
       run: node scripts/runTestsInProd.js
       env:
         CRUSHER_TOKEN: ${{ secrets.CRUSHER_TOKEN }}
-        PROJECT_ID: 731
+        PROJECT_ID: 855
         GIT_COMMIT: ${{ github.event.pull_request.head.sha }}
