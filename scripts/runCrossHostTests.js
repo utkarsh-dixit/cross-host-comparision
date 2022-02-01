@@ -65,7 +65,7 @@ const resolveToBackendPath = (path) => {
       githubRepoName: GITHUB_REPO_NAME,
       baselineJobId: baseBuildId,
       githubCommitId: GIT_COMMIT,
-      host: "https://stage-headout.com",
+      host: "https://headout.com",
     })
   }).then(async (res) => {
     const responseText = await res.text();
